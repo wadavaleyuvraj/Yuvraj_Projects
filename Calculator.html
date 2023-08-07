@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator</title>
+    <style>
+        /* Add your responsive styles here */
+        @media only screen and (max-width: 600px) {
+            /* Adjustments for mobile devices */
+            .about-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            /* Add any other mobile-specific styles here */
+        }
+    </style>
+    <style>
+        /* CSS styles remain unchanged from the previous version */
+        /* ... */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(58, 57, 57, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .calculator-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .calculator input {
+            width: 100%;
+            padding: 10px;
+            font-size: 28px;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            text-align: right;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .calculator button {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #444;
+            background-color: #f2f2f2;
+            transition: background-color 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .calculator button:hover {
+            background-color: #d2d2d2;
+        }
+        .calculator button:active {
+            background-color: #b2b2b2;
+        }
+        .calculator button.equal {
+            background-color: #ff9800;
+            color: white;
+        }
+        .calculator button.clear {
+            background-color: #e57373;
+            color: white;
+        }
+        .calculator button.zero {
+            grid-column: span 2;
+        }
+        .calculator .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator-name">Advanced Scientific Calculator</div>
+        <input type="text" id="result" disabled>
+        <div class="row">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="backspace()">←</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('**')">^</button>
+        </div>
+        <div class="row">
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('sqrt(')">√</button>
+        </div>
+        <div class="row">
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('sin(')">sin</button>
+        </div>
+        <div class="row">
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button class="zero" onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('cos(')">cos</button>
+        </div>
+        <div class="row">
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="appendToDisplay('(')">(</button>
+            <button onclick="appendToDisplay(')')">)</button>
+            <button class="equal" onclick="calculateResult()">=</button>
+            <button onclick="appendToDisplay('tan(')">tan</button>
+        </div>
+        <div class="row">
+            <button onclick="appendToDisplay('pi')">π</button>
+            <button onclick="appendToDisplay('e')">e</button>
+            <button onclick="appendToDisplay('abs(')">|x|</button>
+            <button onclick="appendToDisplay('log(')">log</button>
+            <button onclick="appendToDisplay('exp(')">exp</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function backspace() {
+            const currentExpression = document.getElementById('result').value;
+            document.getElementById('result').value = currentExpression.slice(0, -1);
+        }
+
+        function clearDisplay() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculateResult() {
+            try {
+                let result = eval(document.getElementById('result').value);
+                if (result === undefined || isNaN(result)) {
+                    throw new Error("Invalid Expression");
+                }
+                document.getElementById('result').value = result;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>

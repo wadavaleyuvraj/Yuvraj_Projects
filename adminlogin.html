@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>eLearning Website - Admin Login</title>
+  <link rel="stylesheet" type="text/css" href="admincsslogin.css">
+  <script src="adminscript.js"></script>
+</head>
+<body>
+ 
+  <nav>
+    <ul>
+
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html">User (Student)</a></li>
+      <li><a href="#" class="active">Admin (Teacher)</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <section id="admin-login">
+    <h2>Admin Login</h2>
+    <form onsubmit="event.preventDefault(); handleLogin();">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+</body>
+</html>

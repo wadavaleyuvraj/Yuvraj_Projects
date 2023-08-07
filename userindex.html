@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="userindex.css">
+
+  <style>
+    /* Add CSS styles for the buttons */
+    .button {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #1148c9;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    
+    header {
+      background-color: #333532;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+    
+    main {
+      padding: 10px;
+      text-align: center;
+    }
+    
+    section {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(119, 223, 8, 0.1);
+    }
+    
+    footer {
+      background-color: #272927;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    
+    .logout-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #cc0f0f;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .logout-button:hover {
+      background-color: #ba08eb;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>User Dashboard</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+        <h2>Subjects</h2>
+        <a href="subject.html" class="button">Explore Subjects</a>
+
+        <!-- Display subjects here -->
+      </section>
+
+      <section>
+        <h2>Materials</h2>
+        <a href="material.html" class="button">View Materials</a>
+        <!-- Display materials here -->
+      </section>
+
+      <section>
+        <h2>Questions</h2>
+        <a href="question.html" class="button">Answer Questions</a>
+        <!-- Display questions here -->
+      </section>
+
+      <section>
+        <h2>Results</h2>
+        <a href="result.html" class="button">Check Results</a>
+        <!-- Display results here -->
+      </section>
+      
+      <section>
+        <a href="home.html" class="logout-button">Logout</a>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>

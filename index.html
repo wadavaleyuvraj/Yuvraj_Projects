@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Add your responsive styles here */
+        @media only screen and (max-width: 600px) {
+            /* Adjustments for mobile devices */
+            .about-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            /* Add any other mobile-specific styles here */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Hi&#x1F44B This is Yuvraj!</h1>
+            <div class="about-section">
+                <img class="profile-photo" src="nvcn.png" alt="Your Photo">
+                <h2>Welcome to my Website</h2>
+                <p class="contact-info">Here are Some of my Projects&#x1F447 </p>
+            </div>
+
+            <div class="buttons-container">
+                <div class="button-container openP_index-btn" onclick="openP_index()">Portfolio</div>
+                <div class="button-container Student_Teacher_Portal-btn" onclick="openStudent_Teacher_Portal()">Student Teacher Portal</div>
+                <div class="button-container calculator-btn" onclick="openCalculator()">Calculator</div>
+                <div class="button-container tribute-btn" onclick="openTributePage()">Tribute Page</div>
+                <div class="button-container todo-btn" onclick="openToDoApp()">To Do Web App</div>
+                <div class="button-container Chatbot-btn" onclick="openChatbot()">Chatbot</div>
+                <div class="button-container MinorProject-btn" onclick="openMinorProject()">Minor Project</div>
+                <div class="button-container MajorProject-btn" onclick="openMajorProject()">Major Project</div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openP_index() {
+            window.location.href = "P_index.html"; // Replace 'calculator.html' with the actual file path of your calculator page
+        }
+
+        function openCalculator() {
+            window.location.href = "Calculator.html"; // Replace 'calculator.html' with the actual file path of your calculator page
+        }
+
+        function openStudent_Teacher_Portal() {
+            window.location.href = "Ihome.html"; // Replace 'calculator.html' with the actual file path of your calculator page
+        }
+
+        function openChatbot() {
+            window.location.href = "chat_index.html"; // Replace 'calculator.html' with the actual file path of your calculator page
+        }
+
+        function openTributePage() {
+            window.location.href = "Tribute Page.html"; // Replace 'tribute_page.html' with the actual file path of your tribute page
+        }
+
+        function openToDoApp() {
+            window.location.href = "To do Webapp.html"; // Replace 'todo_app.html' with the actual file path of your to-do web app page
+        }
+
+        function openMinorProject() {
+            window.location.href = "Project.html"; // Replace 'todo_app.html' with the actual file path of your to-do web app page
+        }
+        function openMajorProject() {
+            window.location.href = "g.html"; // Replace 'todo_app.html' with the actual file path of your to-do web app page
+        }
+    </script>
+</body>
+</html>

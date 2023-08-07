@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="adminindex.css">
+  <style>
+    /* Add CSS styles for the buttons */
+    .button {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #1b4cdf;
+    }
+
+    .logout-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #d80c05;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .logout-button:hover {
+      background-color: #980af0;
+    }
+
+    .left-sections {
+      float: left;
+      width: 50%;
+    }
+
+    .right-sections {
+      float: right;
+      width: 50%;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .main-container > div {
+      width: 48%;
+    }
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    footer {
+      background-color: #272927;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Admin Dashboard </h2>
+    <p></p> 
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="main-container">
+        <div class="left-sections">
+          <section>
+            <a href="addcourses.html" class="button">Add Courses</a>
+
+            <!-- Course addition form -->
+          </section>
+
+          <section>
+            <a href="mc.html" class="button">Manage Courses</a>
+            <!-- Course management table -->
+          </section>
+
+          <section>
+            <a href="examquestions.html" class="button">Add Exam Questions</a>
+            <!-- Student details form -->
+          </section>
+
+          <section>
+            <a href="msd.html" class="button">Manage Student Details</a>
+            
+          </section>
+
+        </div>
+
+        <div class="right-sections">
+          <section>
+            <a href="attendence.html" class="button">Attendence</a>
+            <!-- Exam question addition form -->
+          </section>
+
+          <section>
+            <a href="ct.html" class="button">Class Timetable</a>
+            <!-- Student details management table -->
+          </section>
+
+          <section>
+            <a href="asd.html" class="button">Add Student Details</a>
+            <!-- Study material upload form -->
+          </section>
+
+          <section>
+            <a href="sm.html" class="button"> Upload Study Materials</a>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <section>
+        <a href="home.html" class="logout-button">Logout</a>
+      </section>
+    </div>
+
+  </main>
+
+  
+</body>
+</html>

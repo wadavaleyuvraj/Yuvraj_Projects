@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+    <style>
+        /* Add your responsive styles here */
+        @media only screen and (max-width: 600px) {
+            /* Adjustments for mobile devices */
+            .about-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            /* Add any other mobile-specific styles here */
+        }
+    </style>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .task-list {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            align-items: stretch;
+        }
+        .task-card {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .task-card:hover {
+            transform: translateY(-5px);
+        }
+        .task-card.completed {
+            border-color: #2ecc71;
+            background-color: #27ae60;
+            color: #fff;
+            opacity: 0.8;
+        }
+        .task-card.completed:hover {
+            transform: none;
+        }
+        .task-card h3 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .task-card p {
+            font-size: 18px;
+            text-align: center;
+            margin: 0;
+        }
+        .task-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .task-actions button {
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #444;
+            background-color: #f2f2f2;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .task-actions button.delete-btn {
+            background-color: #e57373;
+            color: white;
+        }
+        .task-actions button.delete-btn:hover {
+            background-color: #c93c3c;
+        }
+        .task-actions button.complete-btn {
+            background-color: #ff9800;
+            color: white;
+        }
+        .task-actions button.complete-btn:hover {
+            background-color: #d17c00;
+        }
+        .task-form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .task-form input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #333;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+        .task-form button {
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #007bff;
+            transition: background-color 0.2s;
+        }
+        .task-form button:hover {
+            background-color: #0056b3;
+        }
+        .tribute-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .tribute-link a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .tribute-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do App</h1>
+        <div class="task-form">
+            <input type="text" id="taskTitle" placeholder="Enter Task (Title/Number)">
+            <input type="text" id="taskDescription" placeholder="Enter Task Description">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <h2>Pending Tasks</h2>
+        <div class="task-list" id="pendingTasks">
+            <!-- Pending tasks will be added dynamically here -->
+        </div>
+        <h2>Completed Tasks</h2>
+        <div class="task-list" id="completedTasks">
+            <!-- Completed tasks will be added dynamically here -->
+        </div>
+    </div>
+
+    <script>
+        function createTaskCard(title, description, isCompleted) {
+            const taskCard = document.createElement("div");
+            taskCard.classList.add("task-card");
+            if (isCompleted) {
+                taskCard.classList.add("completed");
+            }
+
+            const titleElement = document.createElement("h3");
+            titleElement.textContent = title;
+
+            const descriptionElement = document.createElement("p");
+            descriptionElement.textContent = description;
+
+            const actionsDiv = document.createElement("div");
+            actionsDiv.classList.add("task-actions");
+
+            if (!isCompleted) {
+                const completeButton = document.createElement("button");
+                completeButton.textContent = "Complete";
+                completeButton.classList.add("complete-btn");
+                completeButton.addEventListener("click", () => {
+                    completeTask(taskCard);
+                });
+                actionsDiv.appendChild(completeButton);
+            }
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.classList.add("delete-btn");
+            deleteButton.addEventListener("click", () => {
+                deleteTask(taskCard);
+            });
+            actionsDiv.appendChild(deleteButton);
+
+            taskCard.appendChild(titleElement);
+            taskCard.appendChild(descriptionElement);
+            taskCard.appendChild(actionsDiv);
+
+            return taskCard;
+        }
+
+        function addTask() {
+            const taskTitle = document.getElementById("taskTitle").value.trim();
+            const taskDescription = document.getElementById("taskDescription").value.trim();
+
+            if (taskTitle === "") {
+                alert("Please enter a task title.");
+                return;
+            }
+
+            const pendingTasksDiv = document.getElementById("pendingTasks");
+
+            const taskCard = createTaskCard(taskTitle, taskDescription, false);
+            pendingTasksDiv.appendChild(taskCard);
+
+            document.getElementById("taskTitle").value = "";
+            document.getElementById("taskDescription").value = "";
+        }
+
+        function deleteTask(taskCard) {
+            taskCard.remove();
+        }
+
+        function completeTask(taskCard) {
+            taskCard.classList.add("completed");
+            const completedTasksDiv = document.getElementById("completedTasks");
+            completedTasksDiv.appendChild(taskCard);
+
+            const actionsDiv = taskCard.querySelector(".task-actions");
+            actionsDiv.remove();
+        }
+    </script>
+</body>
+</html>
